@@ -1,4 +1,10 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:moanamtang/models/patient_model.dart';
 import 'package:moanamtang/utility/my_constant.dart';
 import 'package:moanamtang/widgets/show_title.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,8 +17,67 @@ class MoanamonePage extends StatefulWidget {
 }
 
 class _MoanamonePageState extends State<MoanamonePage> {
+  late String _scanBarcode = 'ยังไม่มีข้อมูล';
+  int index = 0;
   bool statusRedEye = true;
   final formKey = GlobalKey<FormState>();
+   List<PatientModel> patientModel = [];
+  String? hn,fnamenew,lname;
+
+  Future<void> startBarcodeScanStream() async {
+    FlutterBarcodeScanner.getBarcodeStreamReceiver(
+            '#ff6666', 'Cancel', true, ScanMode.BARCODE)!
+        .listen((barcode) => print(barcode));
+  }
+
+  late String barcodeScanRes = '';
+
+  @override
+  void initState() {
+    super.initState();
+    // scanQR();
+  }
+
+  Future<void> scanQR() async {
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      // print(barcodeScanRes);
+      // print('## value for API ===> $barcodeScanRes');
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+      getdata();
+   
+    });
+  }
+
+  Future<Null> getdata() async {
+    if (patientModel.isNotEmpty) {
+      patientModel.clear();
+    } else {}
+    final apifire = '${MyConstant.domain}/moanamtang/api/getpatient.php?isAdd=true&hn=$hn';
+    await Dio().get(apifire).then((value) async {
+      print('## value for API  ==>  $value');
+      for (var item in json.decode(value.data!)) {
+        PatientModel model = PatientModel.fromJson(item);
+        var hn = model.hn!.toString();
+         var fname = model.fname!.toString();
+         print('### ==>>>==========>>>> $hn');
+        print('### ==>>>==========>>>> $fname');
+        setState(() {
+          patientModel.add(model);
+          // fire_nums = fireModel.toString();
+          fnamenew = fname;
+        });
+        print('### ==>>>==========>>>> $fnamenew');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +93,44 @@ class _MoanamonePageState extends State<MoanamonePage> {
             child: ListView(
               children: [
                 // buildImage(size),
+                //  builAppname(),
                 buildImagePK(),
                 builAppname(),
                 // buildUser(size),
                 // buildPassword(size),
-                buildSubmit(size),
+                // buildSubmit(size),
+                Column(
+                  children: [
+                    Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: MaterialButton(
+                    onPressed: () { 
+                      scanQR();
+                    },
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                        CircleAvatar(
+                          backgroundColor: Color.fromARGB(255, 238, 255, 252),
+                          radius: 60,
+                          child: Icon(
+                            Icons.qr_code_rounded,
+                            color: Colors.orange,
+                            size: 80,
+                          ),
+                        ),Text('Scan',style: TextStyle(fontSize:30,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 47, 183, 201)),)
+                      ],
+
+      //                   fontSize: 30,
+      // color: Color.fromARGB(255, 27, 207, 180),
+      // fontWeight: FontWeight.bold);
+
+                    ),
+                  ),
+                ),  
+                  ],
+                )
               ],
             ),
           ),
@@ -53,7 +151,7 @@ class _MoanamonePageState extends State<MoanamonePage> {
             image: DecorationImage(
                 image: AssetImage("images/logomoa.png"), fit: BoxFit.cover),
           ),
-          margin: const EdgeInsets.only(top: 90),
+          margin: const EdgeInsets.only(top: 85),
           // width: size * 0.3,
           // child: ShowImage(path: MyConstant.img_logo),
         ),
@@ -67,14 +165,17 @@ Row builAppname() {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
+        // margin: const EdgeInsets.only(top: 90,right: 3,left: 175),
         margin: const EdgeInsets.only(top: 2),
         child: Text(
           'หมอนำทาง',
-          style: GoogleFonts.lato(
+          style: GoogleFonts.sarabun(
             // textStyle: Theme.of(context).textTheme.displayLarge,
-            fontSize: 48,
+            textStyle: TextStyle(
+                color: Color.fromARGB(255, 47, 183, 201), letterSpacing: .5),
+            fontSize: 55,
             fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.italic,
+            // fontStyle: FontStyle.italic,
           ),
         ),
         // child: ShowTitle(
@@ -92,8 +193,8 @@ Row buildSubmit(double size) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        width: size * 0.7,
+        margin: const EdgeInsets.symmetric(vertical: 5),
+        width: size * 0.5,
         child: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: ElevatedButton.icon(
@@ -106,13 +207,14 @@ Row buildSubmit(double size) {
               ),
             ),
             label: Text(
-              'Scan qrcode',
-              style: MyConstant().h1login(),
+              'Scan', style: MyConstant().Scanqrcodevn(),
             ),
-            onPressed: () {},
+            onPressed: () {
+              // scanQR();
+            },
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50.0),
+                  borderRadius: BorderRadius.circular(30.0),
                 ),
                 backgroundColor: Color.fromARGB(255, 238, 255, 252)),
           ),

@@ -297,6 +297,11 @@ TextStyle appfirststyle() => const TextStyle(
       color: Color.fromARGB(255, 11, 185, 162),
       fontWeight: FontWeight.bold);
 
+  TextStyle Scanqrcodevn() => const TextStyle(
+      fontSize: 30,
+      color: Color.fromARGB(255, 27, 207, 180),
+      fontWeight: FontWeight.bold);
+
   TextStyle h2White() =>
       TextStyle(fontSize: 20, color: white, fontWeight: FontWeight.bold);
 
