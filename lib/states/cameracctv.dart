@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pkofficer/models/article_model.dart';
+import 'package:moanamtang/models/article_model.dart';
 
 class CameraCCtv extends StatefulWidget {
   const CameraCCtv({super.key});

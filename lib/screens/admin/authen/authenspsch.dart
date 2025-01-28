@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pkofficer/screens/admin/authen/authenReport.dart';
-import 'package:pkofficer/screens/admin/authen/authenlist.dart';
-import 'package:pkofficer/screens/admin/authen/authenpull.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpidsit.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpidsitreport.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
+import 'package:moanamtang/screens/admin/authen/authenReport.dart';
+import 'package:moanamtang/screens/admin/authen/authenlist.dart';
+import 'package:moanamtang/screens/admin/authen/authenpull.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpidsit.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpidsitreport.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
 
 class Authenspsch extends StatefulWidget {
   const Authenspsch({super.key});

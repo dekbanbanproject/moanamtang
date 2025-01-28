@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:pkofficer/models/article_model_check.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/models/article_model_check.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class MainCctvdetail extends StatefulWidget {
   const MainCctvdetail({super.key});

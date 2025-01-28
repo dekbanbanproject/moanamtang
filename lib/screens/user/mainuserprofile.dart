@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainUserProfilr extends StatefulWidget {

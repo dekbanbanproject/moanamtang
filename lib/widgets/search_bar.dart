@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pkofficer/models/article_model.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/models/article_model.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class MySearchBar extends StatefulWidget {
   const MySearchBar({super.key});

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pkofficer/models/fdhminidatasetmodel.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
+import 'package:moanamtang/models/fdhminidatasetmodel.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
 
 class MainAuthpidsit extends StatefulWidget {
   const MainAuthpidsit({super.key});

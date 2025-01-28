@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pkofficer/screens/patient/mainpatient.dart';
-import 'package:pkofficer/screens/patient/nadpatient.dart';
-import 'package:pkofficer/screens/patient/patientprofile.dart';
-import 'package:pkofficer/screens/patient/reportpatient.dart';
-import 'package:pkofficer/screens/patient/visitpatient.dart';
-import 'package:pkofficer/states/signout.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/screens/patient/mainpatient.dart';
+import 'package:moanamtang/screens/patient/nadpatient.dart';
+import 'package:moanamtang/screens/patient/patientprofile.dart';
+import 'package:moanamtang/screens/patient/reportpatient.dart';
+import 'package:moanamtang/screens/patient/visitpatient.dart';
+import 'package:moanamtang/states/signout.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class PatientPage extends StatefulWidget {
   const PatientPage({super.key});

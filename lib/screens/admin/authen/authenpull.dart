@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
 
 class AuthenPull extends StatefulWidget {
   const AuthenPull({super.key});

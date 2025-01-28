@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:pkofficer/models/article_model_check.dart';
-import 'package:pkofficer/screens/admin/cctv/maincctvreq.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
+import 'package:moanamtang/models/article_model_check.dart';
+import 'package:moanamtang/screens/admin/cctv/maincctvreq.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
 
 class Maincctvedit extends StatefulWidget {
   final ArticleCheckModel articlecheckModeledit;

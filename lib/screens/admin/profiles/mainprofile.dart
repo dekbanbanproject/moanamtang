@@ -6,10 +6,10 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pkofficer/models/usersModel.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/utility/my_dialog.dart';
-import 'package:pkofficer/widgets/home_app_bar.dart';
+import 'package:moanamtang/models/usersModel.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/utility/my_dialog.dart';
+import 'package:moanamtang/widgets/home_app_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainProfile extends StatefulWidget {

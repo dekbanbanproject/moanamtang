@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pkofficer/states/cameracctv.dart';
-import 'package:pkofficer/states/signout.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/widgets/list_cctv.dart';
+import 'package:moanamtang/states/cameracctv.dart';
+import 'package:moanamtang/states/signout.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/widgets/list_cctv.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 

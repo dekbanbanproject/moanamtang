@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pkofficer/utility/my_constant.dart';
-import 'package:pkofficer/widgets/show_image.dart';
-import 'package:pkofficer/widgets/show_title.dart';
+import 'package:moanamtang/utility/my_constant.dart';
+import 'package:moanamtang/widgets/show_image.dart';
+import 'package:moanamtang/widgets/show_title.dart';
 
 class MyDialog {
   // get title => null;

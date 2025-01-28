@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:pkofficer/models/article_model_check.dart';
-import 'package:pkofficer/screens/admin/cctv/maincctvadd.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/models/article_model_check.dart';
+import 'package:moanamtang/screens/admin/cctv/maincctvadd.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class MainCctv extends StatefulWidget {
   const MainCctv({super.key});

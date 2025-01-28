@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pkofficer/screens/admin/fdh/mainauthpidsit.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpidsit.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpidsitreport.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpullpidsit.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/screens/admin/fdh/mainauthpidsit.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpidsit.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpidsitreport.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpullpidsit.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class MainFdh extends StatefulWidget {
   const MainFdh({super.key});

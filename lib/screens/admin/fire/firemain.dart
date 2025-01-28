@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pkofficer/screens/admin/fdh/mainpullpidsit.dart';
-import 'package:pkofficer/screens/admin/fire/fireadd.dart';
-import 'package:pkofficer/screens/admin/fire/mainfirerepaire.dart';
-import 'package:pkofficer/screens/admin/fire/mainfirereport.dart';
-import 'package:pkofficer/screens/admin/fire/mainfirereq.dart';
-import 'package:pkofficer/screens/admin/fire/mainfireshow.dart';
-import 'package:pkofficer/utility/my_constant.dart';
+import 'package:moanamtang/screens/admin/fdh/mainpullpidsit.dart';
+import 'package:moanamtang/screens/admin/fire/fireadd.dart';
+import 'package:moanamtang/screens/admin/fire/mainfirerepaire.dart';
+import 'package:moanamtang/screens/admin/fire/mainfirereport.dart';
+import 'package:moanamtang/screens/admin/fire/mainfirereq.dart';
+import 'package:moanamtang/screens/admin/fire/mainfireshow.dart';
+import 'package:moanamtang/utility/my_constant.dart';
 
 class FireMainPage extends StatefulWidget {
   const FireMainPage({super.key});

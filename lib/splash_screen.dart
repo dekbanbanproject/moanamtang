@@ -2,7 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:pkofficer/states/login.dart';
+import 'package:moanamtang/states/login.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
