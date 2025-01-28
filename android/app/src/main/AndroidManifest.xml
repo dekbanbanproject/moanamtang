@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
-        android:label="moanamtang"        
-        android:name="หมอนำทาง"
+        android:label="หมอนำทาง"        
+        android:name="${applicationName}" 
         android:icon="@mipmap/ic_launcher">
         <!-- android:name="${applicationName}" -->
         <activity

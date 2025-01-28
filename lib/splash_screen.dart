@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:moanamtang/moanamone.dart';
+import 'package:moanamtang/screens/patient/visitpatient.dart';
 
 import 'package:moanamtang/states/login.dart';
 
@@ -18,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: const Login(),
+      nextScreen: const MoanamonePage(),
       duration: 3000,
       backgroundColor: Colors.white,
       splashIconSize: 300,

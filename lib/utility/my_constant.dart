@@ -12,9 +12,10 @@ class MyConstant {
   static String BASE_URL =
       "http://smarthos-phukieohos.moph.go.th/pkbackoffice/public/api/pull_hosapi";
 
-  static String appName = 'PK-OFFice';
+  static String appfirstName = 'หมอนำทาง';
+  static String appName = 'หมอนำทาง';
   static String appbar = 'PK-OFFice';
-  static String version = '  V.680127';
+  static String version = '  V.680128';
   // static String domain = 'http://27.254.191.157/';
   static String domain = 'http://smarthos-phukieohos.moph.go.th';
   // static String authenspsch              = 'http://smarthos-phukieohos.moph.go.th/pkbackoffice/public/api/authen_spsch';
@@ -167,14 +168,14 @@ class MyConstant {
   ];
 
   static List<Image> image = [
-    Image.asset('images/logo.png'),
+    Image.asset('images/logomoa.png'),
   ];
 
   // Image
   static String img1 = 'images/Job.png';
-  static String img2 = 'images/logo.png';
+  static String img2 = 'images/logomoa.png';
   static String img3 = 'images/Payment.png';
-  static String img_logo = 'images/logo.png';
+  static String img_logo = 'images/logomoa.png';
   static String img5 = 'images/logogtw.png';
 
   //Color
@@ -250,6 +251,15 @@ class MyConstant {
       fontSize: 40,
       color: Color.fromARGB(255, 4, 160, 137),
       fontWeight: FontWeight.normal);
+
+TextStyle appfirststyle() => const TextStyle(
+      fontSize: 40,
+      color: Color.fromARGB(255, 7, 194, 201),
+      fontWeight: FontWeight.normal);
+
+
+
+      
   TextStyle appbarname() => const TextStyle(
       fontSize: 60,
       color: Color.fromARGB(255, 4, 160, 137),
@@ -364,7 +374,7 @@ class MyConstant {
   SizedBox showlogo2() {
     return SizedBox(
       width: 360.0,
-      child: Image.asset('images/logo.png'),
+      child: Image.asset('images/logomoa.png'),
     );
   }
   // Mydialog()
