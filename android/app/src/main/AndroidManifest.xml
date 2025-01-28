@@ -5,9 +5,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
-        android:label="pkofficer"
-        android:name="${applicationName}"
+        android:label="moanamtang"        
+        android:name="หมอนำทาง"
         android:icon="@mipmap/ic_launcher">
+        <!-- android:name="${applicationName}" -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
