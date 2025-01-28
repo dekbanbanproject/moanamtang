@@ -21,8 +21,8 @@ class _MoanamonePageState extends State<MoanamonePage> {
   int index = 0;
   bool statusRedEye = true;
   final formKey = GlobalKey<FormState>();
-   List<PatientModel> patientModel = [];
-  String? hn,fnamenew,lname;
+  List<PatientModel> patientModel = [];
+  String? hn, fnamenew, lname;
 
   Future<void> startBarcodeScanStream() async {
     FlutterBarcodeScanner.getBarcodeStreamReceiver(
@@ -52,29 +52,32 @@ class _MoanamonePageState extends State<MoanamonePage> {
     setState(() {
       _scanBarcode = barcodeScanRes;
       getdata();
-   
     });
   }
 
   Future<Null> getdata() async {
-    if (patientModel.isNotEmpty) {
-      patientModel.clear();
-    } else {}
-    final apifire = '${MyConstant.domain}/moanamtang/api/getpatient.php?isAdd=true&hn=$hn';
+     print('### ==>>>_scanBarcode==========>>>> $_scanBarcode');
+    // if (patientModel.isNotEmpty) {
+    //   patientModel.clear();
+    // } else {}
+    final apifire =
+        '${MyConstant.domain}/moanamtang/api/getpatient.php?isAdd=true&hn=$_scanBarcode';
     await Dio().get(apifire).then((value) async {
       print('## value for API  ==>  $value');
       for (var item in json.decode(value.data!)) {
         PatientModel model = PatientModel.fromJson(item);
         var hn = model.hn!.toString();
-         var fname = model.fname!.toString();
-         print('### ==>>>==========>>>> $hn');
+        var fname = model.fname!.toString();
+        print('### ==>>>==========>>>> $hn');
         print('### ==>>>==========>>>> $fname');
         setState(() {
           patientModel.add(model);
           // fire_nums = fireModel.toString();
           fnamenew = fname;
+          // hn        = hn;
         });
         print('### ==>>>==========>>>> $fnamenew');
+        // print('### ==>>>==========>>>> $hn');
       }
     });
   }
@@ -102,33 +105,40 @@ class _MoanamonePageState extends State<MoanamonePage> {
                 Column(
                   children: [
                     Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: MaterialButton(
-                    onPressed: () { 
-                      scanQR();
-                    },
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        
-                        CircleAvatar(
-                          backgroundColor: Color.fromARGB(255, 238, 255, 252),
-                          radius: 60,
-                          child: Icon(
-                            Icons.qr_code_rounded,
-                            color: Colors.orange,
-                            size: 80,
-                          ),
-                        ),Text('Scan',style: TextStyle(fontSize:30,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 47, 183, 201)),)
-                      ],
+                      padding: const EdgeInsets.only(top: 20),
+                      child: MaterialButton(
+                        onPressed: () {
+                          scanQR();
+                        },
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor:
+                                  Color.fromARGB(255, 238, 255, 252),
+                              radius: 60,
+                              child: Icon(
+                                Icons.qr_code_rounded,
+                                color: Colors.orange,
+                                size: 80,
+                              ),
+                            ),
+                            Text(
+                              'Scan ',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 47, 183, 201),
+                              ),
+                            )
+                          ],
 
-      //                   fontSize: 30,
-      // color: Color.fromARGB(255, 27, 207, 180),
-      // fontWeight: FontWeight.bold);
-
+                          //                   fontSize: 30,
+                          // color: Color.fromARGB(255, 27, 207, 180),
+                          // fontWeight: FontWeight.bold);
+                        ),
+                      ),
                     ),
-                  ),
-                ),  
                   ],
                 )
               ],
@@ -207,7 +217,8 @@ Row buildSubmit(double size) {
               ),
             ),
             label: Text(
-              'Scan', style: MyConstant().Scanqrcodevn(),
+              'Scan',
+              style: MyConstant().Scanqrcodevn(),
             ),
             onPressed: () {
               // scanQR();

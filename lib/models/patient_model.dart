@@ -116,5 +116,5 @@ class PatientModel {
     return data;
   }
 
-  void add(PatientModel patientmodel) {}
+  void add(PatientModel patientModel) {}
 }
