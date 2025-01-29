@@ -130,7 +130,6 @@ class Ovst_model {
     data['visit_type_name'] = visit_type_name;
     data['staff_name'] = staff_name;
     data['cid'] = cid;
-
     data['auth_code'] = auth_code;
     data['bps'] = bps;
     data['bpd'] = bpd;
