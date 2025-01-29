@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:moanamtang/models/ovst_model.dart';
 import 'package:moanamtang/models/patient_model.dart';
 import 'package:moanamtang/utility/my_constant.dart';
 import 'package:moanamtang/widgets/show_title.dart';
@@ -22,6 +23,8 @@ class _MoanamonePageState extends State<MoanamonePage> {
   bool statusRedEye = true;
   final formKey = GlobalKey<FormState>();
   List<PatientModel> patientModel = [];
+  List<Ovst_model> ovstModel = [];
+  
   String? hn, fnamenew, lname;
 
   Future<void> startBarcodeScanStream() async {
@@ -60,25 +63,40 @@ class _MoanamonePageState extends State<MoanamonePage> {
     // if (patientModel.isNotEmpty) {
     //   patientModel.clear();
     // } else {}
-    final apifire =
-        '${MyConstant.domain}/moanamtang/api/getpatient.php?isAdd=true&hn=$_scanBarcode';
-    await Dio().get(apifire).then((value) async {
+    final response =
+        // '${MyConstant.domain}/moanamtang/api/getopenvisit.php?isAdd=true&hn=$_scanBarcode'; //hn
+         '${MyConstant.domain}/moanamtang/api/getopenvisit.php?isAdd=true&vn=$_scanBarcode';
+    await Dio().get(response).then((value) async {
       print('## value for API  ==>  $value');
       for (var item in json.decode(value.data!)) {
-        PatientModel model = PatientModel.fromJson(item);
+        Ovst_model model = Ovst_model.fromJson(item);
         var hn = model.hn!.toString();
-        var fname = model.fname!.toString();
-        print('### ==>>>==========>>>> $hn');
-        print('### ==>>>==========>>>> $fname');
+        var vn = model.vn!.toString();
+        var ptname = model.ptname!.toString();
+        var cc = model.cc!.toString();
+        var spclty_name = model.spclty_name!.toString();
+        var ovstist_name = model.ovstist_name!.toString();
+        var hospital_department_name = model.hospital_department_name!.toString();
+        var main_department_name = model.main_department_name!.toString();
+        print('### ==>>>hn==========>>>> $hn');
+        print('### ==>>>vn==========>>>> $vn');
+        print('### ==>>>ptname==========>>>> $ptname');
+        print('### ==>>>cc==========>>>> $cc');
+        print('### ==>>>spclty_name==========>>>> $spclty_name');
+        print('### ==>>>ovstist_name==========>>>> $ovstist_name');
+        print('### ==>>>hospital_department_name==========>>>> $hospital_department_name');
+        print('### ==>>>main_department_name==========>>>> $main_department_name');
         setState(() {
-          patientModel.add(model);
-          // fire_nums = fireModel.toString();
-          fnamenew = fname;
-          // hn        = hn;
+          ovstModel.add(model); 
+          ptname = ptname; 
         });
-        print('### ==>>>==========>>>> $fnamenew');
-        // print('### ==>>>==========>>>> $hn');
+        // print('### ==>>>==========>>>> $fnamenew'); 
       }
+      // if (response.statusCode == 200) { 
+      //   return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+      // } else { 
+      //   throw Exception('Failed to load album');
+      // }
     });
   }
 

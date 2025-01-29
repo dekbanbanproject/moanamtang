@@ -1,5 +1,5 @@
 <?php
-    include('config.php');
+    include('confighos.php');
         
     header("Access-Control-Allow-Origin: *");
     // $conn = mysqli_connect('27.254.191.157', 'gotowin', 'Fdm^;bog-91','gtw'); 
@@ -16,14 +16,14 @@
     }
     if(isset($_GET)){
         if ($_GET['isAdd'] == 'true') {
-            $date        = date('Y-m-d');
-            $y = date('Y') + 543;
-            $m = date('m');
+            $date    = date('Y-m-d');
+            $y       = date('Y') + 543;
+            $m       = date('m');
             $newweek = date('Y-m-d', strtotime($date . ' -1 week')); //ย้อนหลัง 1 สัปดาห์
             $newDate = date('Y-m-d', strtotime($date . ' -1 months')); //ย้อนหลัง 1 เดือน
             $newyear = date('Y-m-d', strtotime($date . ' -1 year')); //ย้อนหลัง 1 ปี 
    
-            $hn   = $_GET['hn'];
+            $hn     = $_GET['hn'];
             
             $result = mysqli_query($conn,"SELECT * FROM patient WHERE hn= '$hn' ORDER BY hn ASC");
 
